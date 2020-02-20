@@ -1,8 +1,8 @@
 /*
 ============================================
 ; Title:  object-literal-class.js
-; Author: Professor Krasso
-; Date:   28 February 2019
+; Author: Mike Godlberg
+; Date:   18 February 2020
 ; Description: Refresher on object literal classes
 ;===========================================
 */
