@@ -1,6 +1,6 @@
 /*
 ============================================
-; Title:  object-literal-class.js
+; Title:  Exercise 1.3
 ; Author: Mike Godlberg
 ; Date:   18 February 2020
 ; Description: Refresher on object literal classes
@@ -11,13 +11,13 @@
 const header = require('../goldberg-header.js');
 
 /*
- Expected output:
+Expected output:
 
 -- DISPLAYING CELL PHONE DETAILS --
- Manufacturer: blackberry
- Model: z20
- Color: purple
- Price: $159
+Manufacturer: blackberry
+Model: z20
+Color: purple
+Price: $159
 
 */
 
@@ -25,20 +25,20 @@ const header = require('../goldberg-header.js');
 
 // variable declaration
 function CellPhone(manufacturer, model, color, price) {
-    this.manufacturer = manufacturer;
-    this.model = model;
-    this.color = color;
-    this.price = price;
+  this.manufacturer = manufacturer;
+  this.model = model;
+  this.color = color;
+  this.price = price;
 
-    this.getPrice = function () {
-        return this.price;
-    };
-    this.getModel = function () {
-        return this.model;
-    };
-    this.getDetails = function() {
-        return "Manufacturer: " + this.manufacturer + "\n" + "Model: " + this.getModel() + "\n" + "Color: " + this.color + "\n" + "Price: $" + this.getPrice();
-    };
+  this.getPrice = function () {
+    return this.price;
+  };
+  this.getModel = function () {
+    return this.model;
+  };
+  this.getDetails = function() {
+    return "Manufacturer: " + this.manufacturer + "\n" + "Model: " + this.getModel() + "\n" + "Color: " + this.color + "\n" + "Price: $" + this.getPrice();
+  };
 
 }
 
