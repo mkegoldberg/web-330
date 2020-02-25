@@ -20,20 +20,23 @@ const header = require('../goldberg-header.js');
 
 // start program
 
+// variable declaration
 var person = {
     getAge: function () {
         return this.age;
     }
 };
-
+// intantiate object
 var mike = Object.create(person, {
     "age": { "value": "42" },
     "fullName": {"value": "Mike Goldberg"},
 });
 
-mike.getAge();
+// output
+console.log(header.display("Mike", "Goldberg", "assignment 1.4"), "\n");
 
 console.log("The person's full name is " + mike.fullName);
-console.log("The person's age is " + mike.age);
+console.log("The person's age is " + mike.getAge());
+
 // end program
 
