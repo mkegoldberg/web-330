@@ -45,7 +45,7 @@ function Informix(properties) {
 function DatabaseFactory() { }
 
 // Use Prototype
-// DatabaseFactory.prototype.databaseClass = Informix;
+DatabaseFactory.prototype.databaseClass = Informix;
 DatabaseFactory.prototype.createDatabase = function (properties) {
   if (properties.databaseType === "Oracle") {
     this.databaseClass = Oracle;
