@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+============================================
+; Title: Discussion 4.1
+; Author: Mike Goldberg
+; Date: 09 March 2020
+; Description: jQuery Ajax
+;=========================================== -->
+
+<html>
+  <head>
+    <title>jQuery Ajax</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>jQuery Ajax Example</h1>
+    <p>Enter a keyword for a movie title and click the button to get results from the iTunes api. (Open the console to see the json response!)</p>
+
+    <input type="text" id="search" placeholder="Enter keyword"/>
+    <button>Click me!</button>
+
+    <script>
+      var searchMovie = function (term) {
+          console.log("https://itunes.apple.com/search?media=movie&limit=10&term=" + term);
+          $.ajax({
+            dataType: "jsonp",
+            method: "GET",
+            url: "https://itunes.apple.com/search?media=movie&limit=10&term=" + term,
+            success: function (response) {
+              console.log(response);
+              for (var i = 0; i < response.results.length; i++) {
+                var title = response.results[i].trackName;
+                var imgURL = response.results[i].artworkUrl100;
+
+                var titleEl = $('<p>').text(title);
+                var img = $('<img>').attr('src', imgURL);
+                $('body').append(titleEl);
+                $('body').append(img);
+              }
+            }
+          });
+        }
+
+        $('body').on('click', 'button', function () {
+          var searchValue = $('#search').val();
+          searchMovie(encodeURIComponent(searchValue));
+        });
+    </script>
+  </body>
+</html>
