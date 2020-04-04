@@ -56,7 +56,7 @@
             <th>Price</th>
           </tr>
         </thead>
-        <tbody data-bind="foreach: fruits">
+        <tbody data-bind="foreach: books">
           <tr>
             <td data-bind="text: name"></td>
             <td data-bind="text: price"></td>
@@ -69,7 +69,7 @@
 
     <script>
       function GroceryViewModel() {
-        this.fruits = ko.observableArray([
+        this.books = ko.observableArray([
           { name: "JavaScript For Dummies", price: 21.99 },
           { name: "HTML For Dummies", price: 5.99 },
           { name: "CSS For Dummies", price: 8.99 },
