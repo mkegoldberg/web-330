@@ -2,7 +2,7 @@
 
 <!--
 ============================================
-; Title: Assignment 7.3
+; Title: Assignment 7.4
 ; Author: Mike Goldberg
 ; Date: 22 March 2020
 ; Description: Knockout forEach-binding
@@ -17,7 +17,7 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <title>Assignment 7.3</title>
+    <title>Assignment 7.4</title>
 
     <!-- Stylesheet - Bootstrap -->
     <link
@@ -48,18 +48,22 @@
     <div role="main" class="container">
       <br /><br />
 
-      <h2>The "foreach" binding</h2>
+      <h2>Other Bindings</h2>
       <table class="table table-dark table-striped table-hover">
         <thead>
           <tr>
             <th>Title</th>
-            <th>Price</th>
+            <th>Description</th>
+            <th>Link</th>
           </tr>
         </thead>
-        <tbody data-bind="foreach: books">
+        <tbody data-bind="foreach: tutorials">
           <tr>
-            <td data-bind="text: name"></td>
-            <td data-bind="text: price"></td>
+            <td data-bind="text: title"></td>
+            <td data-bind="text: description"></td>
+            <td>
+              <a data-bind="attr: {href: linkPath}, text: linkText, class: 'text-info'" target="_blank"></a>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -68,16 +72,17 @@
     </div>
 
     <script>
-      function bookViewModel() {
-        this.books = ko.observableArray([
-          { name: "JavaScript For Dummies", price: 21.99 },
-          { name: "HTML For Dummies", price: 5.99 },
-          { name: "CSS For Dummies", price: 8.99 },
-          { name: "How to read For Dummies.. for Dummies ", price: 1.49 }
+      function tutorialViewModel() {
+        this.tutorials = ko.observableArray([
+          { title: "Variables", description: "Learn how to handle dynamic data", linkText: "Click Here", linkPath: "https://www.w3schools.com/js/js_variables.asp" },
+          { title: "Objects", description: "Store values as an Object", linkPath: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object", linkText: "Click to view JS Objects" },
+          { title: "Arrays", description: "Store values in an Array", linkPath: "https://www.learnjavaonline.org/en/Arrays", linkText: "Go to Array docs" },
+          { title: "Constructors", description: "Learn how to modify JS Object", linkText: "Click to learn more", linkPath: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/constructor" },
+          { title: "For Loops", description: "Learn how to iterate through data", linkText: "Go to Documentation", linkPath: "https://zellwk.com/blog/js-for-loops/" },
         ]);
       }
 
-      ko.applyBindings(new bookViewModel());
+      ko.applyBindings(new tutorialViewModel());
     </script>
   </body>
 </html>
