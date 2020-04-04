@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<!--
+============================================
+; Title: Assignment 7.3
+; Author: Mike Goldberg
+; Date: 22 March 2020
+; Description: Knockout forEach-binding
+;===========================================
+ -->
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <title>Assignment 7.3</title>
+
+    <!-- Stylesheet - Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+      integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+      crossorigin="anonymous"
+    />
+
+    <!-- JavaScript Libraries -->
+    <script src="../knockout.v3.5.1.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div role="main" class="container">
+      <br /><br />
+
+      <h2>The "foreach" binding</h2>
+      <table class="table table-dark table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody data-bind="foreach: fruits">
+          <tr>
+            <td data-bind="text: name"></td>
+            <td data-bind="text: price"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br />
+    </div>
+
+    <script>
+      function GroceryViewModel() {
+        this.fruits = ko.observableArray([
+          { name: "JavaScript For Dummies", price: 21.99 },
+          { name: "HTML For Dummies", price: 5.99 },
+          { name: "CSS For Dummies", price: 8.99 },
+          { name: "How to read For Dummies.. for Dummies ", price: 1.49 }
+        ]);
+      }
+
+      ko.applyBindings(new GroceryViewModel());
+    </script>
+  </body>
+</html>
